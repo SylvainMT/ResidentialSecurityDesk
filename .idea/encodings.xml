@@ -11,6 +11,8 @@
     <file url="file://$PROJECT_DIR$/LocalPersistence/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PdfRenderer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PdfRenderer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
