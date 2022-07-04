@@ -4,17 +4,43 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ca.sylvaint</groupId>
+    <groupId>ca.sylvaint.rsd</groupId>
     <artifactId>ResidentialSecurityDesk</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Residential Security Desk</name>
+    <description>A Desktop CRUD application for the use of personnel occupying the role of the front desk
+        security officer or concierge of a residential tower.</description>
+    <inceptionYear>2022</inceptionYear>
+
     <licenses>
         <license>
-            <name>GNU Affero General Public License v3</name>
-            <url>http://www.fsf.org/licensing/licenses/agpl-3.0.html</url>
+            <name>AGPL-3.0</name>
+            <url>https://www.gnu.org/licenses/agpl-3.0.html</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>SylvainMT</id>
+            <name>Sylvain Tousignant</name>
+            <email>SylvainMT@protonmail.com</email>
+            <url>https://sylvaint.ca</url>
+            <timezone>America/Toronto</timezone>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/SylvainMT/ResidentialSecurityDesk.git</connection>
+        <url>https://github.com/SylvainMT/ResidentialSecurityDesk</url>
+        <tag>main</tag>
+    </scm>
 
     <modules>
         <module>GUISwing</module>
