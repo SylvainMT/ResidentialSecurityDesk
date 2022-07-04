@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Bootstrap" />
+        <module name="LocalPersistence" />
+        <module name="PdfRenderer" />
         <module name="GUISwing" />
-        <module name="LocalPersistance" />
         <module name="Core" />
       </profile>
     </annotationProcessing>

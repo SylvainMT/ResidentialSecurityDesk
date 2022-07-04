@@ -8,11 +8,20 @@
     <artifactId>ResidentialSecurityDesk</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <licenses>
+        <license>
+            <name>GNU Affero General Public License v3</name>
+            <url>http://www.fsf.org/licensing/licenses/agpl-3.0.html</url>
+        </license>
+    </licenses>
+
     <modules>
         <module>GUISwing</module>
         <module>Core</module>
         <module>LocalPersistence</module>
         <module>Bootstrap</module>
+        <module>PdfRenderer</module>
     </modules>
 
     <properties>
