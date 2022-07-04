@@ -15,18 +15,7 @@
  -     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>                             -
  ---------------------------------------------------------------------------------------------------------------------*/
 
-package ca.sylvaint.rds;
+package ca.sylvaint.rds.app;
 
-public class Bootstrap {
-    public static void main(String[] args) {
-        /*
-        1. Find CORE module
-        2. Find GUI module
-        3. Find Persistence module
-        4. Find PDF Renderer module
-        5. Find Init Config File and Load it
-        6. Tell CORE module where to find the GUI, Persistence and PDF Renderer Module
-        7. Hand over execution (main thread) to CORE module with Loaded Configurations.
-        */
-    }
+public class AppStart {
 }
