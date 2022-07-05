@@ -23,4 +23,4 @@
 hs_err_pid*
 
 # Added for privacy
-Bootstrap/src/main/resources/config.xml
+LocalPersistence/src/main/resources/db-config.xml
