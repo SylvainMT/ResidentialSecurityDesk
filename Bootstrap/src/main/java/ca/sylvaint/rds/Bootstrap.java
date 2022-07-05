@@ -24,9 +24,8 @@ public class Bootstrap {
         2. Find GUI module
         3. Find Persistence module
         4. Find PDF Renderer module
-        5. Find Init Config File and Load it
-        6. Tell CORE module where to find the GUI, Persistence and PDF Renderer Module
-        7. Hand over execution (main thread) to CORE module with Loaded Configurations.
+        5. Tell CORE module where to find the GUI, Persistence and PDF Renderer Module
+        6. Hand over execution (main thread) to CORE module with Loaded Configurations.
         */
     }
 }
