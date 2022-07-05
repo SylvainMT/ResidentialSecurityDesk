@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--
+  ~     Copyright (C) 2022  Sylvain Tousignant
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU Affero General Public License as
+  ~     published by the Free Software Foundation, either version 3 of the
+  ~     License, or (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU Affero General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU Affero General Public License
+  ~     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>
+  -->
+
+
+<!--
+    Local Persistence Module is build on the MariaDB and uses the MariaDB JDBC Connector
+    The actual database can be hosted on the local machine or on a network accessible server
+    The idea is to use Local Persistence as a proof of concept and then speerate the module into two seperate modules,
+    One that will be a plug-in to the Desktop App and the second will be a standalone programm that will run as a
+    server, these two modules would then take over network communications without exposing the Database to the internet.
+    -->
+<properties>
+    <!-- Database configurations -->
+
+    <entry key="dbHost"><!-- Hostname or IP Address --></entry>
+    <entry key="dbUser"><!-- Username used to login to DB --></entry>
+    <entry key="dbPass"><!-- Password used to login to DB --></entry>
+    <entry key="dbSchema"><!-- The actual database schema to connect to --></entry>
+
+    <!--
+    It should be noted that these values are not intended to be stored as plain text, but encrypted.
+
+    The only way to write to the file is via the software interface and not by hand.  As hand written values would]
+    produce errors.
+    -->
+</properties>
