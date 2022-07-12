@@ -26,3 +26,5 @@ hs_err_pid*
 LocalPersistence/src/main/resources/db-config.xml
 MariaDB_User/CreateUser.sql
 *.pem
+*.pks
+*.jks
