@@ -24,6 +24,8 @@ hs_err_pid*
 
 # Added for privacy
 LocalPersistence/src/main/resources/db-config.xml
+LocalPersistence/src/test/resources/db-config.xml
+db-config.xml
 MariaDB_User/CreateUser.sql
 *.pem
 *.pks
