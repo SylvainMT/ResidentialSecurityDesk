@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <!--
   ~     Copyright (C) 2022  Sylvain Tousignant
   ~
@@ -17,26 +16,31 @@
   ~     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>
   -->
 
-
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <!--
     Local Persistence Module is build on the MariaDB and uses the MariaDB JDBC Connector
     The actual database can be hosted on the local machine or on a network accessible server
-    The idea is to use Local Persistence as a proof of concept and then speerate the module into two seperate modules,
-    One that will be a plug-in to the Desktop App and the second will be a standalone programm that will run as a
+    The idea is to use Local Persistence as a proof of concept and then separate the module into two separate modules,
+    One that will be a plug-in to the Desktop App and the second will be a standalone program that will run as a
     server, these two modules would then take over network communications without exposing the Database to the internet.
     -->
 <properties>
     <!-- Database configurations -->
 
-    <entry key="dbHost"><!-- Hostname or IP Address --></entry>
-    <entry key="dbUser"><!-- Username used to login to DB --></entry>
-    <entry key="dbPass"><!-- Password used to login to DB --></entry>
-    <entry key="dbSchema"><!-- The actual database schema to connect to --></entry>
+    <entry key="JDBC_DRIVER">org.mariadb.jdbc.Driver</entry>
+    <entry key="DB_URL_PROTOCOL">jdbc:mariadb:</entry>
+    <entry key="DB_URL"></entry>
+    <entry key="DB_PORT"></entry>
+    <entry key="DB_USER"></entry>
+    <entry key="DB_USER_PASS"></entry>
+    <entry key="DB_SCHEMA"></entry>
+    <entry key="KEYSTORE"></entry>
+    <entry key="KEYSTORE_PASSWORD"></entry>
 
     <!--
-    It should be noted that these values are not intended to be stored as plain text, but encrypted.
+    It should be noted that the "Password" are not intended to be stored as plain text, but encrypted.
 
-    The only way to write to the file is via the software interface and not by hand.  As hand written values would]
+    The suggested way to write to the file is via the software interface and not by hand.  As handwritten values could
     produce errors.
     -->
 </properties>

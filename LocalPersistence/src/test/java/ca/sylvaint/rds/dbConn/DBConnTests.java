@@ -15,7 +15,18 @@
  -     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>                             -
  ---------------------------------------------------------------------------------------------------------------------*/
 
-package ca.sylvaint.rds.configurations;
+package ca.sylvaint.rds.dbConn;
 
-public record ConnSettings(String host, int port, String user, String password, String schema) {
+import org.junit.jupiter.api.Test;
+
+public class DBConnTests {
+    @Test
+    public void attemptConnection() {
+        //Arrange
+
+        //Act
+
+        //Assert
+
+    }
 }

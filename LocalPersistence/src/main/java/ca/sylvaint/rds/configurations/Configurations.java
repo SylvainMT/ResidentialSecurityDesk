@@ -17,16 +17,40 @@
 
 package ca.sylvaint.rds.configurations;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Properties;
+
 public final class Configurations {
+    private static final String DEFAULT_DB_CONFIG_FILE = "db-config.xml";
+    private static final String DEFAULT_RELATIVE_PATH_TO_PROPERTIES_FILES = "properties";
+
+    private final String dbConfigFileName;
+    private final String relativePathToPropertiesFiles;
+
+    private DbConfig dbConfig = null;
 
     /**
      * This class cannot be instantiated
      */
-    private Configurations(){}
+    public Configurations(){
+        this(DEFAULT_RELATIVE_PATH_TO_PROPERTIES_FILES, DEFAULT_DB_CONFIG_FILE);
+    }
 
+    public Configurations(String relativePathToPropertiesFiles) {
+        this(relativePathToPropertiesFiles, DEFAULT_DB_CONFIG_FILE);
+    }
 
-    public static ConnSettings loadConfigurations() {
-        /*
+    public Configurations(String relativePathToPropertiesFiles, String dbConfigFileName) {
+        this.dbConfigFileName = dbConfigFileName;
+        this.relativePathToPropertiesFiles = relativePathToPropertiesFiles;
+    }
+
+    /*
         - Confirm existence of the configuration file
             -> if exists : Load configuration file
             -> decrypt values
@@ -42,8 +66,87 @@ public final class Configurations {
             -> save configuration file
             -> return connSettings
          */
+    public DbConfig getDbConfig () {
+        if (this.dbConfig == null) {
+            this.dbConfig = loadDbConfig();
+        }
+        return this.dbConfig;
+    }
 
-        return null;
+    private DbConfig loadDbConfig()  {
+        if (!doesPropertiesDirectoryExist()) {
+            throw new DirectoryNotFoundException("The Directory \"" + this.relativePathToPropertiesFiles + "\" was not found.");
+        }
+        Path dbConfigFile = Paths.get(relativePathToPropertiesFiles, dbConfigFileName);
+        if (!doesDbConfigFileExist(dbConfigFile) || !isDbConfigFileReadable(dbConfigFile)) {
+            System.err.println("File does not exist or is not readable");
+            throw new ConfigFileNotFoundException("The Config file \"" + this.relativePathToPropertiesFiles + "\\" +
+                    this.dbConfigFileName + "\" was not found." );
+        }
+
+        try (InputStream inputStream = Files.newInputStream(dbConfigFile)) {
+            Properties dbConfigProp = new Properties();
+            dbConfigProp.loadFromXML(inputStream);
+            DbConfig databaseConfig = new DbConfig(
+                    dbConfigProp.getProperty("JDBC_DRIVER"),
+                    dbConfigProp.getProperty("DB_URL_PROTOCOL"),
+                    dbConfigProp.getProperty("DB_URL"),
+                    dbConfigProp.getProperty("DB_PORT"),
+                    dbConfigProp.getProperty("DB_USER"),
+                    dbConfigProp.getProperty("DB_USER_PASS"),
+                    dbConfigProp.getProperty("DB_SCHEMA"),
+                    dbConfigProp.getProperty("KEYSTORE"),
+                    dbConfigProp.getProperty("KEYSTORE_PASSWORD")
+            );
+            return databaseConfig;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private boolean doesDbConfigFileExist(Path dbConfigFile) {
+        boolean dbConfigFileExists;
+        try {
+            dbConfigFileExists = Files.exists(dbConfigFile);
+        } catch (InvalidPathException e) {
+            dbConfigFileExists = false;
+        }
+        return dbConfigFileExists;
+    }
+
+    private boolean isDbConfigFileReadable(Path dbConfigFile) {
+        boolean isDbConfigFileReadable;
+        try {
+            isDbConfigFileReadable = Files.isReadable(dbConfigFile);
+        } catch (InvalidPathException e) {
+            isDbConfigFileReadable = false;
+        }
+        return isDbConfigFileReadable;
+    }
+
+    private boolean doesPropertiesDirectoryExist() {
+        boolean propertiesDirectoryExists;
+
+        try {
+            Path propertiesDirectory = Paths.get(relativePathToPropertiesFiles);
+            propertiesDirectoryExists = Files.exists(propertiesDirectory);
+
+        } catch (InvalidPathException e) {
+            propertiesDirectoryExists = false;
+        }
+        return propertiesDirectoryExists;
+    }
+
+    class DirectoryNotFoundException extends RuntimeException {
+        public DirectoryNotFoundException(String message) {
+            super(message);
+        }
+    }
+
+    class ConfigFileNotFoundException extends RuntimeException {
+        public ConfigFileNotFoundException(String message) {
+            super(message);
+        }
     }
 
 

@@ -15,17 +15,19 @@
  -     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>                             -
  ---------------------------------------------------------------------------------------------------------------------*/
 
-package ca.sylvaint.rds.dbConn;
+package ca.sylvaint.rds.auth;
 
-public final class Connection {
-    /*
-    Singleton Pattern
+import javax.swing.*;
 
-    Builds a MariaDB JDBC connection. Stores it in memory and gives the object on demand to any class within the
-    Local Persistence module.
+public class LoginForm extends JFrame {
 
-    Could be expanded to work with connection pools if needed.
+    public LoginForm() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(800,300);
+        setLocationRelativeTo(null);
+        setTitle("Please Login");
 
-    Must also contain a static function to test DB Connection using a ConnSettings Record
-    */
+
+    }
+
 }
