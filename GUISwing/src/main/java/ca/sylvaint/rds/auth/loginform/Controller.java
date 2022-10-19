@@ -15,16 +15,10 @@
  -     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>                             -
  ---------------------------------------------------------------------------------------------------------------------*/
 
-package ca.sylvaint.rds.auth;
+package ca.sylvaint.rds.auth.loginform;
 
-import ca.sylvaint.rds.auth.loginform.Components;
-import ca.sylvaint.rds.auth.loginform.View;
+public class Controller {
+    public Controller(Components components) {
 
-public class LoginForm {
-    public LoginForm() {
-        Components components = new Components();
-        View.initView(components);
-
-        components.getFrame().setVisible(true);
     }
 }

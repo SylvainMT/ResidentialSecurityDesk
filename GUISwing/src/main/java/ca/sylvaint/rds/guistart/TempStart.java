@@ -15,16 +15,44 @@
  -     along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.html>                             -
  ---------------------------------------------------------------------------------------------------------------------*/
 
-package ca.sylvaint.rds.auth;
+package ca.sylvaint.rds.guistart;
 
-import ca.sylvaint.rds.auth.loginform.Components;
-import ca.sylvaint.rds.auth.loginform.View;
+import ca.sylvaint.rds.auth.LoginForm;
+import com.formdev.flatlaf.intellijthemes.FlatLightFlatIJTheme;
 
-public class LoginForm {
-    public LoginForm() {
-        Components components = new Components();
-        View.initView(components);
+import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+import java.util.Enumeration;
 
-        components.getFrame().setVisible(true);
+public class TempStart {
+    public static void main(String[] args) {
+
+        FlatLightFlatIJTheme.setup();
+
+        try {
+            UIManager.setLookAndFeel(new FlatLightFlatIJTheme());
+        }  catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
+
+        setUIFontSize(125);
+
+        SwingUtilities.invokeLater(() -> {
+            LoginForm loginForm = new LoginForm();
+        });
+    }
+
+    private static void setUIFontSize(int percentage) {
+        float multiplyValue = percentage / 100f;
+        Enumeration<Object> keys = UIManager.getDefaults().keys();
+        while (keys.hasMoreElements()) {
+            Object key = keys.nextElement();
+            Object value = UIManager.get(key);
+            if (value instanceof FontUIResource fontUIResource) {
+                int currentSize = fontUIResource.getSize();
+                float newSize = (float) Math.round(currentSize * multiplyValue);
+                UIManager.put(key, fontUIResource.deriveFont(newSize));
+            }
+        }
     }
 }
