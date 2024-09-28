@@ -12,11 +12,11 @@
     <artifactId>PdfRenderer</artifactId>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <itext.version>7.2.3</itext.version>
+        <itext.version>8.0.5</itext.version>
     </properties>
 
     <dependencies>
